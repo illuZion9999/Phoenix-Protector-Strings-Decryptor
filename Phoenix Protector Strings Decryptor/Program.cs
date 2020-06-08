@@ -22,10 +22,10 @@ namespace Phoenix_Protector_Strings_Decryptor
             var targetFilePath = string.Empty;
             if (args.Length < 1)
             {
-                while (targetFilePath == string.Empty || File.Exists(targetFilePath))
+                while (targetFilePath == string.Empty || !File.Exists(targetFilePath))
                 {
                     Console.Write("Path of the file: ");
-                    targetFilePath = Path.GetFullPath(Console.ReadLine());
+                    targetFilePath = Path.GetFullPath(Console.ReadLine().Replace("\"", string.Empty));
                 }
             }
             else
